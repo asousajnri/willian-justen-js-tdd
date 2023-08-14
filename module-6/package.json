@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha __tests__/**/*.spec.js --bail --watch"
+    "test": "mocha __tests__/**/*.spec.js --bail --watch --require babel-register"
   },
   "devDependencies": {
     "chai": "^4.3.7",

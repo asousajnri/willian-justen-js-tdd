@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const calc = require('../src/calc.js');
+import { expect } from 'chai';
+import calc from  '../src/calc.js';
 
 describe('Calc', () => {
     describe('Smoke tests', () => {
