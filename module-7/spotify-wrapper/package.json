@@ -1,0 +1,16 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+		"test": "nyc mocha __tests__/**/*.spec.js --bail --watch --require babel-register"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  }
+}
