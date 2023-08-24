@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nyc mocha __tests__/**/*.spec.js --bail --watch --require babel-register"
+    "test": "mocha __tests__/**/*.spec.js --bail --watch --require babel-register"
   },
   "license": "MIT",
   "devDependencies": {
