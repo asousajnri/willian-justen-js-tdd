@@ -77,4 +77,56 @@ describe('Spotify Wrapper Tests Suit', () => {
       })
     });
   });
+  describe('searchArtists', () => {
+    it('should call fetch function', () => {
+      searchArtists('Incubus');
+      expect(stubbedFetch).to.have.been.calledOnce;
+    });
+    it('should call fetch with the correct URL', () => {
+      searchArtists('Incubus');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist')
+      
+      searchArtists('Muse');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist')
+    });
+  });
+  describe('searchAlbums', () => {
+    it('should call fetch function', () => {
+      searchAlbums('Incubus');
+      expect(stubbedFetch).to.have.been.calledOnce;
+    });
+    it('should call fetch with the correct URL', () => {
+      searchAlbums('Incubus');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=album')
+      
+      searchAlbums('Muse');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=album')
+    });
+  });
+  describe('searchTracks', () => {
+    it('should call fetch function', () => {
+      searchTracks('Incubus');
+      expect(stubbedFetch).to.have.been.calledOnce;
+    });
+    it('should call fetch with the correct URL', () => {
+      searchTracks('Incubus');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=track')
+      
+      searchTracks('Muse');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=track')
+    });
+  });
+  describe('searchPlaylists', () => {
+    it('should call fetch function', () => {
+      searchPlaylists('Incubus');
+      expect(stubbedFetch).to.have.been.calledOnce;
+    });
+    it('should call fetch with the correct URL', () => {
+      searchPlaylists('Incubus');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=playlist')
+      
+      searchPlaylists('Muse');
+      expect(stubbedFetch).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=playlist')
+    });
+  });
 });
