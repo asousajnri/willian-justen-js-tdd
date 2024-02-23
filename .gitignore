@@ -3,3 +3,4 @@ tags
 yarn.lock
 coverage/
 .nyc_output
+.DS_Store
