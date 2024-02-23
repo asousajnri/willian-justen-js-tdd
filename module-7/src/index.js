@@ -1,5 +1,5 @@
 export const search = (q, t) => {
-  fetch(`https://api.spotify.com/v1/search?q=${q}&type=${t}`)
+  return fetch(`https://api.spotify.com/v1/search?q=${q}&type=${t}`)
     .then(data => data.json());
 };
 

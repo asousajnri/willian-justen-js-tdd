@@ -14,6 +14,16 @@ import {
 global.fetch = require('node-fetch');
 
 describe('Spotify Wrapper Tests Suit', () => {
+  let stubbedFetch;
+  let promise;
+  beforeEach(() => {
+    stubbedFetch = sinon.stub(global, 'fetch');
+    promise = stubbedFetch.resolves({ json: () => ({ body: 'json' }) });
+  });
+  afterEach(() => {
+    stubbedFetch.restore();
+  });
+
   describe('Smoke tests', () => {
     it('should exist the search method', () => {
       expect(search).to.exist;
@@ -32,15 +42,6 @@ describe('Spotify Wrapper Tests Suit', () => {
     });
   });
   describe('Generic Search', () => {
-    let stubbedFetch;
-    let promise;
-    beforeEach(() => {
-      stubbedFetch = sinon.stub(global, 'fetch');
-      promise = stubbedFetch.returnsPromise();
-		});
-    afterEach(() => {
-      stubbedFetch.restore();
-    });
     it('should call fetch function', () => {
       const artists = search();
       expect(stubbedFetch).to.have.been.calledOnce;
@@ -70,10 +71,10 @@ describe('Spotify Wrapper Tests Suit', () => {
       });
     });
     it('should return the JSON Data from the Promise', () => {
-      promise.resolves({ body: 'json' });
       const artists = search('Incubus', 'artist');
-      console.log(artists);
-      expect(artists.resolveValue).to.be.eql({ body: 'json' });
+      artists.then(data => {
+        return expect(data).to.be.eql({ body: 'json' });
+      })
     });
   });
 });
