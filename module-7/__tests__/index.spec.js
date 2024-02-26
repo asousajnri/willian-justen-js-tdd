@@ -72,8 +72,8 @@ describe('Spotify Wrapper Tests Suit', () => {
     });
     it('should return the JSON Data from the Promise', () => {
       const artists = search('Incubus', 'artist');
-      artists.then(data => {
-        return expect(data).to.be.eql({ body: 'json' });
+      return artists.then(data => {
+        expect(data).to.be.eql({ body: 'json' });
       })
     });
   });
