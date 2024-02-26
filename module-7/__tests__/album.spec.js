@@ -16,7 +16,7 @@ describe('Album', () => {
     let promise;
     beforeEach(() => {
         stubedFetch = sinon.stub(global, 'fetch');
-        promise = stubedFetch.resolves({ json: {} });
+        promise = stubedFetch.resolves({ json: () => {} });
     });
 
     afterEach(() => {
@@ -38,10 +38,10 @@ describe('Album', () => {
         });
         it('should call fetch with the correct URL', () => {
             getAlbum('0TnOYISbd1XYRBk9myaseg');
-            expect(stubedFetch).to.have.calledWith('https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums')
+            expect(stubedFetch).to.have.calledWith('https://api.spotify.com/v1/albums/0TnOYISbd1XYRBk9myaseg')
 
-            const album2 = getAlbum('0TnOKISbd1XYRBk9myaseg');
-            expect(stubedFetch).to.have.calledWith('https://api.spotify.com/v1/artists/0TnOKISbd1XYRBk9myaseg/albums')
+            getAlbum('0TnOKISbd1XYRBk9myaseg');
+            expect(stubedFetch).to.have.calledWith('https://api.spotify.com/v1/albums/0TnOKISbd1XYRBk9myaseg')
         });
         it('should return the correct data from Promise', () => {
             promise.resolves({ album: 'name' });
