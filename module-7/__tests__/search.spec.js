@@ -9,7 +9,7 @@ import {
   searchArtists,
   searchTracks,
   searchPlaylists
-} from '../src';
+} from '../src/search';
 
 global.fetch = require('node-fetch');
 
