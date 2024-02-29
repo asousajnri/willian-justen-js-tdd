@@ -7,6 +7,9 @@
     "clear": "rimraf lib",
     "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
     "build:watch": "npm run build --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.min.umd.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "test": "mocha __tests__/**/*.spec.js --bail --watch --require babel-register",
     "test:coverage": "nyc mocha __tests__/**/*.spec.js --require babel-register"
   },
@@ -15,6 +18,7 @@
     "@babel/core": "^7.23.9",
     "@babel/node": "^7.23.9",
     "babel-cli": "^6.26.0",
+    "babel-loader": "7.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.3.7",
@@ -22,6 +26,8 @@
     "node-fetch": "2.6.7",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
-    "sinon-chai": "^3.7.0"
+    "sinon-chai": "^3.7.0",
+    "webpack": "2.4.1",
+    "webpack-cli": "^5.1.4"
   }
 }
