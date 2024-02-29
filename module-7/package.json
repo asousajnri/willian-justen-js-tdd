@@ -4,6 +4,9 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "clear": "rimraf lib",
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build --watch",
     "test": "mocha __tests__/**/*.spec.js --bail --watch --require babel-register",
     "test:coverage": "nyc mocha __tests__/**/*.spec.js --require babel-register"
   },
@@ -11,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/node": "^7.23.9",
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.3.7",
