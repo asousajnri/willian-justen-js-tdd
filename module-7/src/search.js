@@ -1,6 +1,6 @@
-import { API_URL } from './config';
+import { API_URL, HEADERS } from './config';
 export const search = (q, t) => {
-  return fetch(`${API_URL}/search?q=${q}&type=${t}`)
+  return fetch(`${API_URL}/search?q=${q}&type=${t}`, HEADERS)
     .then(data => data.json());
 };
 
