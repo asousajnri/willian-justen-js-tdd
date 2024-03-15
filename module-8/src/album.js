@@ -1,16 +1,7 @@
-import { API_URL, HEADERS } from './config';
-
-export const getAlbum = (id) => {
-    return fetch(`${API_URL}/albums/${id}`, HEADERS)
-    .then(data => data);
-};
-
-export const getAlbums = ids => {
-    return fetch(`${API_URL}/albums/?ids=${ids}`, HEADERS)
-    .then(data => data);
-};
-
-export const getAlbumTracks = (id) => {
-    return fetch(`${API_URL}/albums/${id}/tracks`, HEADERS)
-    .then(data => data)
-};
+export default function album() {
+    return {
+        getAlbum: id => this.request(`${this.apiURL}/albums/${id}`),
+        getAlbums: ids => this.request(`${this.apiURL}/albums/?ids=${ids}`),
+        getTracks: id => this.request(`${this.apiURL}/albums/${id}/tracks`),
+    };
+}
