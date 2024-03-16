@@ -9,7 +9,10 @@
     <div id="albums"></div>
     <script src="../dist/spotify-wrapper.umd.js"></script>
     <script>
-        const albums = spotifyWrapper.searchAlbums('Incubus');
+        const spotify = new SpotifyWrapper({
+            token: '...',
+        });
+        const albums = spotify.search.albums('Incubus');
         const albumsEl = document.getElementById('albums');
         albums.then(data => {
             markup = data.albums.items.map(item => `
