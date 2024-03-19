@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>02 - let</title>
+</head>
+<body>
+  <script>
+    var animal = 'cat';
+    let animal = 'cat';
+    console.log(animal);
+    // new block scope
+    {
+      let animal = 'dog';
+      console.log(animal);
+    }
+    console.log(animal);
+  </script>
+</body>
+</html>

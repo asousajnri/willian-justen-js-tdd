@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>04 - temporal dead zone</title>
+</head>
+<body>
+  <script>
+    console.log(cat);
+    // var is in hosting as undefined
+    var cat = 'meow';
+    console.log(cat);
+    // let and const is no hosting throwing error
+    const cat = 'meow';
+    let cat = 'meow';
+  </script>
+</body>
+</html>
